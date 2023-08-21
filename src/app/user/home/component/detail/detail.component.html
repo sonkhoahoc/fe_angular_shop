@@ -1,0 +1,96 @@
+
+
+
+    <!-- Shop Details Section Begin -->
+    <section class="shop-details">
+        <div class="product__details__pic">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="product__details__breadcrumb">
+                            <a href="">Trang chủ</a>
+                            <a href="san-pham">Cửa hàng</a>
+                            <span>Chi tiết sản phẩm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-3">
+           
+                    </div>
+                    <div class="col-lg-6 col-md-9">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <div class="product__details__pic__item">
+                                    <img [src]="detail_img_src"   class="product__details__pic__item--large"
+                                    alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product__details__content">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="product__details__text">
+                            <h3>{{ detail_name }}</h3>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>&nbsp;
+                                <i class="fa fa-star"></i>&nbsp;
+                                <i class="fa fa-star"></i>&nbsp;
+                                <i class="fa fa-star"></i>&nbsp;
+                                <i class="fa fa-star-o"></i>
+                                <span> - 5 Nhận xét</span>
+                            </div>
+                            <h3 style="color: red;">{{ detail_price |currency:'VND' }}<span>{{ detail_default_price }}</span></h3>
+                       
+                            <div class="product__details__cart__option">
+                                <div class="quantity">
+                                    <div class="pro-qty">
+                                        <input type="text" value="1">
+                                    </div>
+                                </div>
+                                <a (click)="addToCart(product_detail)" class="primary-btn">Thêm vào giỏ hàng</a>
+                            </div>
+                            <div class="product__details__btns__option">
+
+                            </div>
+                            <div class="product__details__last__option">
+                                <h5><span>Thanh toán an toàn được đảm bảo</span></h5>
+                                <img src="./assets/img/shop-details/details-payment.png" alt="">
+                                <ul>
+                                    <!-- <li><span>SKU:</span> 3812912</li>
+                                    <li><span>Danh mục:</span> {{ category_name }}</li> -->
+                                    <li><span>Tag:</span>{{ category_name }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="product__details__tab">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#tabs-5"
+                                    role="tab">Mô tả sản phẩm</a>
+                                </li>
+
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tabs-5" role="tabpanel">
+                                    <div class="product__details__tab__content">
+                                        <p [innerHTML]="detail_description| sanitizeHtml"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- Shop Details Section End -->

@@ -1,0 +1,160 @@
+<!-- <section class="breadcrumb-section set-bg" data-setbg="./assets/image/breadcrumb.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Thanh toán</h2>
+                    <div class="breadcrumb__option">
+                        <a href="">Trang chủ</a>
+                        <span>Thanh Toán</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h2>Thanh toán</h2>
+                    <div class="breadcrumb__links">
+                        <a href="">Trang chủ</a>
+                        <a href="./shop.html">Cửa hàng</a>
+                        <span>Thanh Toán</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<section class="checkout spad">
+    <div class="container">
+        <!-- <div class="row">
+          <div class="col-lg-12">
+              <h6><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click here</a> to enter your code
+              </h6>
+          </div>
+      </div> -->
+        <div class="checkout__form">
+            <h4>CHI TIẾT THANH TOÁN</h4>
+            <hr>
+            <!-- <form action="#"> -->
+            <form action="" method="POST" [formGroup]="order_fromCreate" (ngSubmit)="onCreate()">
+
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="checkout__input">
+                                    <p>Tên khách hàng<span>*</span></p>
+                                    <input type="text" formControlName="name">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="checkout__input">
+                            <p>Ngày sinh<span>*</span></p>
+                            <input type="date" formControlName="date_of_birth" class="form-control">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Giới tính<span>*</span></p>
+                            <select formControlName="sex">
+                                <option Value="nam">Nam</option>
+                                <option Value="nữ">Nữ</option>
+                            </select>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="checkout__input">
+                            <p>Địa chỉ ship<span>*</span></p>
+                            <input type="text" formControlName="adress">
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Số điện thoại<span>*</span></p>
+                                    <input type="number" min="1" formControlName="number_phone">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Email<span>*</span></p>
+                                    <input type="text" formControlName="email">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <!-- <div class="checkout__order">
+                            <h4>Đơn đặt hàng của bạn</h4>
+                            <div class="checkout__order__products">Sản phẩm <span>Giá tiền</span></div>
+                            <ul>
+                                <li *ngFor="let item of items">
+                                    {{ item.name }} X{{ item.qtyTotal }}<span> {{subtotal(item)|currency:'VND'}}</span>
+                                </li>
+
+                            </ul>
+                            <div class="checkout__order__subtotal">
+                                <div>
+                                    Tổng tiền <span> {{ total|currency:'VND' }}</span></div>
+                                <br>
+                                <div>
+                                    Vận chuyển <span> {{ 25000|currency:'VND' }}</span></div>
+                            </div>
+
+                            <div class="checkout__order__total"  Value="sumtotal" >Thành tiền <span> {{ sumtotal|currency:'VND' }}</span>
+                            </div>
+                          
+                          <button type="submit" class="site-btn" >Thanh toán</button>
+                        </div> -->
+                        <div class="checkout__order">
+                            <h4 class="order__title">ĐƠN HÀNG CỦA BẠN</h4>
+                            <div class="checkout__order__products">Sản phẩm <span>Tổng cộng</span></div>
+                            <ul class="checkout__total__products">
+                                <li *ngFor="let item of items; ;let i=index">{{ i+1 }}. {{ item.name }} X{{
+                                    item.qtyTotal }} <span>{{subtotal(item)|currency:'VND'}}</span></li>
+                                <!-- <li>02. German chocolate <span>$ 170.0</span></li>
+                                <li>03. Sweet autumn <span>$ 170.0</span></li>
+                                <li>04. Cluten free mini dozen <span>$ 110.0</span></li> -->
+                            </ul>
+                            <ul class="checkout__total__all">
+                                <li>Tổng tiền <span>{{ total|currency:'VND' }}</span></li>
+                                <li>Vận chuyển <span>{{ 25000|currency:'VND' }}</span></li>
+                                <hr>
+                                <li>Thành tiền <span>{{ sumtotal|currency:'VND' }}</span></li>
+                            </ul>
+                            <!-- <div class="checkout__input__checkbox">
+                                <label for="acc-or">
+                                    Create an account?
+                                    <input type="checkbox" id="acc-or">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div> -->
+
+                            <div class="checkout__input__checkbox">
+                                <label for="payment">
+                                    Kiểm tra thanh toán
+                                    <input type="checkbox" id="payment">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="checkout__input__checkbox">
+                                <label for="paypal">
+                                    Paypal
+                                    <input type="checkbox" id="paypal">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <button type="submit" class="site-btn">Thanh toán</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
